@@ -23,11 +23,12 @@ function comprarProducto(){
 function compra(){
     let text = "";
     for (let i in productos) {
-        text += productos[i].nombre + ",  " + productos[i].precio + " ";
+        text += productos[i].nombre + " ,  " + productos[i].precio + " ";
     }
     alert(text);
     opcion = prompt("ingrese una opcion \n 2: Compra \n 3: Salir");
 }
+
 const productos=[
     {id:1 ,nombre:"Pizza muzarella", precio: 1000},
     {id:2 ,nombre:"Pizza fugazzetta", precio: 1400},
@@ -44,6 +45,7 @@ function compra2(){
     seguimientoCompra=(prompt("ingresar ID  (ESC PARA TERMINAR)"));
     seguimientoCompra.toUpperCase();
     for(let i in productos){
+           
         if(seguimientoCompra==productos[i].id){
              sumatotal += productos[i].precio
         }
@@ -71,3 +73,10 @@ while( opcion !=="3"){
 
 
 alert("gracias por su compra!");
+for(const producto of productos){
+    let contenedor= document.createElement("div");
+    contenedor.innerHTML=  `<h4> ID: ${producto.id}</h4> 
+                           <p> Producto: ${producto.nombre}</p>  
+                           <b> $ ${producto.precio}</b>`; 
+    document.appendChild(contenedor);
+}
